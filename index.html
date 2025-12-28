@@ -1,126 +1,189 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inauguración del Departamento</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Inauguración del Departamento</title>
 
-    <style>
-        :root {
-            --marron-oscuro: #5a3e2b;
-            --marron-claro: #8b6f4e;
-            --verde-oscuro: #3f5d3a;
-            --verde-claro: #6f8f6a;
-            --fondo: #f5f3ef;
-        }
+<style>
+:root{
+  --marron:#5a3e2b;
+  --verde:#3f5d3a;
+  --verde-claro:#6f8f6a;
+  --fondo:#f5f3ef;
+}
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "Segoe UI", Arial, sans-serif;
-            background-color: var(--fondo);
-            color: var(--marron-oscuro);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+body{
+  margin:0;
+  font-family:"Segoe UI", Arial, sans-serif;
+  background:linear-gradient(180deg,#f5f3ef,#efe9df);
+  color:var(--marron);
+  overflow-x:hidden;
+}
 
-        .contenedor {
-            background-color: #ffffff;
-            border-radius: 12px;
-            padding: 40px 30px;
-            max-width: 600px;
-            width: 90%;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            text-align: center;
-        }
+/* ====== CHISPAS ====== */
+.sparkle{
+  position:fixed;
+  width:6px;
+  height:6px;
+  background:rgba(111,143,106,0.8);
+  border-radius:50%;
+  animation: float 4s linear infinite;
+}
 
-        h1 {
-            margin-bottom: 10px;
-            font-size: 1.9rem;
-            color: var(--marron-oscuro);
-        }
+@keyframes float{
+  from{transform:translateY(0);opacity:1;}
+  to{transform:translateY(-120vh);opacity:0;}
+}
 
-        .edicion {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: var(--verde-oscuro);
-            margin-bottom: 30px;
-        }
+/* ====== CONTENEDOR ====== */
+.wrapper{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:40px 20px;
+}
 
-        .descripcion {
-            font-size: 1rem;
-            margin-bottom: 20px;
-            color: var(--marron-claro);
-        }
+/* ====== CASA ====== */
+.house{
+  position:relative;
+  width:320px;
+  padding:60px 30px 40px;
+  background:#ffffff;
+  text-align:center;
+  border-radius:0 0 14px 14px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
 
-        button {
-            background-color: var(--verde-oscuro);
-            color: #ffffff;
-            border: none;
-            border-radius: 8px;
-            padding: 12px 20px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+/* Techo */
+.house::before{
+  content:"";
+  position:absolute;
+  top:-120px;
+  left:0;
+  width:0;
+  height:0;
+  border-left:160px solid transparent;
+  border-right:160px solid transparent;
+  border-bottom:120px solid #ffffff;
+}
 
-        button:hover {
-            background-color: var(--verde-claro);
-        }
+/* ====== TEXTOS ====== */
+.titulo{
+  font-size:1.8rem;
+  font-weight:700;
+  margin-bottom:10px;
+}
 
-        .lista {
-            margin-top: 20px;
-            display: none;
-        }
+.subtitulo{
+  font-size:1.1rem;
+  color:var(--verde);
+  margin-bottom:25px;
+}
 
-        .lista ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+.detalle{
+  font-size:0.95rem;
+  color:#6b5a4a;
+  margin-bottom:25px;
+  line-height:1.4;
+}
 
-        .lista li {
-            background-color: var(--fondo);
-            margin: 8px 0;
-            padding: 10px;
-            border-radius: 6px;
-            font-weight: 500;
-            color: var(--marron-oscuro);
-            border: 1px solid var(--marron-claro);
-        }
-    </style>
+.mensaje{
+  font-size:0.95rem;
+  margin-bottom:20px;
+}
+
+.mensaje strong{
+  color:var(--verde);
+}
+
+/* ====== BOTÓN ====== */
+button{
+  background:var(--verde);
+  color:#fff;
+  border:none;
+  padding:12px 22px;
+  border-radius:8px;
+  font-size:1rem;
+  cursor:pointer;
+  transition:background .3s;
+}
+
+button:hover{
+  background:var(--verde-claro);
+}
+
+/* ====== LISTA ====== */
+.lista{
+  display:none;
+  margin-top:20px;
+}
+
+.lista ul{
+  list-style:none;
+  padding:0;
+}
+
+.lista li{
+  background:var(--fondo);
+  margin:8px 0;
+  padding:10px;
+  border-radius:6px;
+  border:1px solid #d5c9b8;
+}
+</style>
 </head>
+
 <body>
 
-    <div class="contenedor">
-        <h1>Luis y Brenda los invitan a inaugurar su departamento</h1>
-        <div class="edicion">Edición: ¡No tenemos nada!</div>
+<div class="wrapper">
+  <div class="house">
 
-        <div class="descripcion">
-            Si quieres ayudarnos con algo, te dejamos unas opciones
-        </div>
+    <div class="titulo">Luis &amp; Brenda</div>
+    <div class="subtitulo">Te invitan a conocer su nuevo hogar</div>
 
-        <button onclick="toggleLista()">Ver opciones</button>
-
-        <div class="lista" id="listaOpciones">
-            <ul>
-                <li>Microondas</li>
-                <li>Plancha</li>
-                <li>Licuadora</li>
-            </ul>
-        </div>
+    <div class="detalle">
+      Te esperamos el <strong>24 de Enero</strong> desde las <strong>6:00 pm</strong><br/>
+      en Av. Simón Bolívar, 947
     </div>
 
-    <script>
-        function toggleLista() {
-            const lista = document.getElementById("listaOpciones");
-            lista.style.display = lista.style.display === "none" || lista.style.display === ""
-                ? "block"
-                : "none";
-        }
-    </script>
+    <div class="mensaje">
+      Tu presencia ya es un gran regalo para nosotros,<br/>
+      pero si quieres apoyarnos con algo te dejamos algunas opciones<br/>
+      <strong>Pdta: ¡No tenemos nada!</strong>
+    </div>
+
+    <button onclick="toggleLista()">Ver opciones</button>
+
+    <div class="lista" id="lista">
+      <ul>
+        <li>Microondas</li>
+        <li>Plancha</li>
+        <li>Licuadora</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function toggleLista(){
+  const lista = document.getElementById("lista");
+  lista.style.display = lista.style.display === "block" ? "none" : "block";
+}
+
+/* Generar chispas */
+for(let i=0;i<25;i++){
+  const s=document.createElement("div");
+  s.className="sparkle";
+  s.style.left=Math.random()*100+"vw";
+  s.style.top=Math.random()*100+"vh";
+  s.style.animationDuration=(3+Math.random()*3)+"s";
+  document.body.appendChild(s);
+}
+</script>
 
 </body>
 </html>
+
