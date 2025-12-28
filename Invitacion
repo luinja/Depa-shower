@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inauguración del Departamento</title>
+
+    <style>
+        :root {
+            --marron-oscuro: #5a3e2b;
+            --marron-claro: #8b6f4e;
+            --verde-oscuro: #3f5d3a;
+            --verde-claro: #6f8f6a;
+            --fondo: #f5f3ef;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: var(--fondo);
+            color: var(--marron-oscuro);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .contenedor {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 40px 30px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 1.9rem;
+            color: var(--marron-oscuro);
+        }
+
+        .edicion {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--verde-oscuro);
+            margin-bottom: 30px;
+        }
+
+        .descripcion {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: var(--marron-claro);
+        }
+
+        button {
+            background-color: var(--verde-oscuro);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: var(--verde-claro);
+        }
+
+        .lista {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .lista ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .lista li {
+            background-color: var(--fondo);
+            margin: 8px 0;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 500;
+            color: var(--marron-oscuro);
+            border: 1px solid var(--marron-claro);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <h1>Luis y Brenda los invitan a inaugurar su departamento</h1>
+        <div class="edicion">Edición: ¡No tenemos nada!</div>
+
+        <div class="descripcion">
+            Si quieres ayudarnos con algo, te dejamos unas opciones
+        </div>
+
+        <button onclick="toggleLista()">Ver opciones</button>
+
+        <div class="lista" id="listaOpciones">
+            <ul>
+                <li>Microondas</li>
+                <li>Plancha</li>
+                <li>Licuadora</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function toggleLista() {
+            const lista = document.getElementById("listaOpciones");
+            lista.style.display = lista.style.display === "none" || lista.style.display === ""
+                ? "block"
+                : "none";
+        }
+    </script>
+
+</body>
+</html>
