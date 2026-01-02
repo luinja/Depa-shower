@@ -2,194 +2,79 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Inauguración del Departamento</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Invitación</title>
 
 <style>
 :root{
-  --marron:#5a3e2b;
-  --verde:#3f5d3a;
-  --verde-claro:#6f8f6a;
-  --fondo:#f5f3ef;
+  --verde-terroso:#5f6f52;
 }
 
-body{
+html, body{
   margin:0;
-  font-family:"Segoe UI", Arial, sans-serif;
-  background:linear-gradient(180deg,#f5f3ef,#efe9df);
-  color:var(--marron);
-  overflow-x:hidden;
+  padding:0;
+  width:100%;
+  height:100%;
 }
 
-/* ====== CHISPAS ====== */
-.sparkle{
-  position:fixed;
-  width:6px;
-  height:6px;
-  background:rgba(111,143,106,0.8);
-  border-radius:50%;
-  animation: float 4s linear infinite;
-}
-
-@keyframes float{
-  from{transform:translateY(0);opacity:1;}
-  to{transform:translateY(-120vh);opacity:0;}
-}
-
-/* ====== CONTENEDOR ====== */
-.wrapper{
-  min-height:100vh;
+/* ===== FONDO GENERAL ===== */
+body{
+  background-color: var(--verde-terroso);
   display:flex;
   justify-content:center;
   align-items:center;
-  padding:40px 20px;
+  overflow:hidden;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* ====== CASA ====== */
-.house{
+/* ===== CONTENEDOR ===== */
+.fondo{
   position:relative;
-  width:min(520px, 92vw);
-  padding:90px 40px 50px;
-  text-align:center;
-
-  /* La imagen de fondo */
-  background-image: url("assets/casa.png");
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: contain;
-
-  /* Para que el texto sea legible */
-  color: var(--marron);
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
-/* Techo */
-.house::before{
-  content:"";
+/* ===== SILUETA DE CASA ===== */
+.casa{
   position:absolute;
-  top:-120px;
-  left:0;
-  width:0;
-  height:0;
-  border-left:160px solid transparent;
-  border-right:160px solid transparent;
-  border-bottom:120px solid #ffffff;
+  width:min(520px, 90vw);
+  opacity:0.25;               /* semitransparente */
+  filter: grayscale(100%);
+  user-select:none;
+  pointer-events:none;
 }
 
-/* ====== TEXTOS ====== */
-.titulo{
-  font-size:1.8rem;
-  font-weight:700;
-  margin-bottom:10px;
-}
-
-.subtitulo{
-  font-size:1.1rem;
-  color:var(--verde);
-  margin-bottom:25px;
-}
-
-.detalle{
-  font-size:0.95rem;
-  color:#6b5a4a;
-  margin-bottom:25px;
-  line-height:1.4;
-}
-
-.mensaje{
-  font-size:0.95rem;
-  margin-bottom:20px;
-}
-
-.mensaje strong{
-  color:var(--verde);
-}
-
-/* ====== BOTÓN ====== */
-button{
-  background:var(--verde);
-  color:#fff;
-  border:none;
-  padding:12px 22px;
-  border-radius:8px;
-  font-size:1rem;
-  cursor:pointer;
-  transition:background .3s;
-}
-
-button:hover{
-  background:var(--verde-claro);
-}
-
-/* ====== LISTA ====== */
-.lista{
-  display:none;
-  margin-top:20px;
-}
-
-.lista ul{
-  list-style:none;
-  padding:0;
-}
-
-.lista li{
-  background:var(--fondo);
-  margin:8px 0;
-  padding:10px;
-  border-radius:6px;
-  border:1px solid #d5c9b8;
+/* ===== CAPA FUTURA PARA TEXTO ===== */
+.contenido{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  color:#ffffff;
+  opacity:0.95;
 }
 </style>
 </head>
 
 <body>
 
-<div class="wrapper">
-  <div class="house">
+<div class="fondo">
 
-    <div class="titulo">Luis &amp; Brenda</div>
-    <div class="subtitulo">Te invitan a conocer su nuevo hogar</div>
+  <!-- Silueta -->
+  <img 
+    src="assets/casa2.png" 
+    alt="Silueta de casa"
+    class="casa"
+  />
 
-    <div class="detalle">
-      Te esperamos el <strong>24 de Enero</strong> desde las <strong>6:00 pm</strong><br/>
-      en Av. Simón Bolívar, 947
-    </div>
-
-    <div class="mensaje">
-      Tu presencia ya es un gran regalo para nosotros,<br/>
-      pero si quieres apoyarnos con algo te dejamos algunas opciones<br/>
-      <strong>Pdta: ¡No tenemos nada!</strong>
-    </div>
-
-    <button onclick="toggleLista()">Ver opciones</button>
-
-    <div class="lista" id="lista">
-      <ul>
-        <li>Microondas</li>
-        <li>Plancha</li>
-        <li>Licuadora</li>
-      </ul>
-    </div>
-
+  <!-- Contenido futuro -->
+  <div class="contenido">
+    <!-- Aquí luego pondremos textos y botones -->
   </div>
+
 </div>
-
-<script>
-function toggleLista(){
-  const lista = document.getElementById("lista");
-  lista.style.display = lista.style.display === "block" ? "none" : "block";
-}
-
-/* Generar chispas */
-for(let i=0;i<25;i++){
-  const s=document.createElement("div");
-  s.className="sparkle";
-  s.style.left=Math.random()*100+"vw";
-  s.style.top=Math.random()*100+"vh";
-  s.style.animationDuration=(3+Math.random()*3)+"s";
-  document.body.appendChild(s);
-}
-</script>
 
 </body>
 </html>
-
